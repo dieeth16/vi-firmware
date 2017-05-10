@@ -1,0 +1,37 @@
+{   "name": "eng_spd",
+    "buses": {
+        "hs": {
+            "controller": 1,
+            "speed": 500000
+        }
+    },
+    "messages": {
+        "0x201": {
+            "name": "Engine_Gen_1",
+            "bus": "hs",
+            "signals": {
+                "EngSpd": {
+                    "generic_name": "engine_speed",
+                    "bit_position": 15,
+                    "bit_size": 16
+                },
+		"AccActPos": {
+                    "generic_name": "accelerator_pedal_position",
+                    "bit_position": 39,
+                    "bit_size": 8
+                }
+            }
+        },
+	"0x1217": {
+	    "name": "Engine_Gen_3",
+	    "bus": "hs",
+	    "signals": {
+		"EngCltTmp": {
+		    "generic_name": "engine_coolant_temp",
+                    "bit_position": 23,
+                    "bit_size": 8
+		}
+	    }
+	}		
+    }
+}

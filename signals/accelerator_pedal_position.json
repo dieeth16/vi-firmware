@@ -1,0 +1,21 @@
+{   "name": "accelerator",
+    "buses": {
+        "hs": {
+            "controller": 1,
+            "speed": 500000
+        }
+    },
+    "messages": {
+        "0x201": {
+            "name": "Engine_Gen_1",
+            "bus": "hs",
+            "signals": {
+                "AccActPos": {
+                    "generic_name": "accelerator_pedal_position",
+                    "bit_position": 39,
+                    "bit_size": 8
+                }
+            }
+        }
+    }
+}
