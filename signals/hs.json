@@ -1,0 +1,82 @@
+{
+    "messages": {
+		"0x201": {
+            "name": "Engine_Gen_1",
+            "bus": "hs",
+            "signals": {
+                "EngSpd": {
+                    "generic_name": "engine_speed",
+                    "bit_position": 15,
+                    "bit_size": 16
+                },
+				"AccActPos": {
+                    "generic_name": "accelerator_pedal_position",
+                    "bit_position": 39,
+                    "bit_size": 8
+                }
+            }
+        },
+		"0x1217": {
+			"name": "Engine_Gen_3",
+			"bus": "hs",
+			"signals": {
+				"EngCltTmp": {
+					"generic_name": "engine_coolant_temp",
+                    "bit_position": 23,
+                    "bit_size": 8
+				}
+			}
+		},
+		"0x1040": {
+			"name": "bcm_request",
+			"bus": "hs",
+			"signals": {
+				"bcm_ibat": {
+					"generic name": "battery_current",
+					"bit_position": 39,
+					"bit_size": 16
+				},
+				"bcm_vbat": {
+					"generic_name": "battery_voltage",
+					"bit_position": 51,
+					"bit_size": 12
+				},
+				"bcm_soc": {
+					"generic_name": "battery_state_of_charge",
+					"bit_position": 31,
+					"bit_size": 8
+				},
+				"bcm_mainc_stat": {
+					"generic_name": "battery_contactor_status",
+					"bit_position": 5,
+					"bit_size": 2
+				}
+			}
+		},
+		"0x1162": {
+			"name": "u2c_stat2",
+			"bus": "hs",
+			"signals": {
+				"dcdc_temp": {
+					"generic_name": "dcdc_heatplate_thermistor",
+					"bit_position": 32,
+					"bit_size": 8
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

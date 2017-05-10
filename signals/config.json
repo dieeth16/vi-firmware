@@ -1,0 +1,10 @@
+{   "buses": {
+        "hs": {
+            "controller": 1,
+            "speed": 500000
+        }
+    },
+    "mappings": [
+         {"mapping": "signals/hs.json", "bus": "hs"}
+    ]
+}
