@@ -26,7 +26,7 @@ using namespace openxc::signals::handlers;
 
 const int MESSAGE_SET_COUNT = 1;
 CanMessageSet MESSAGE_SETS[MESSAGE_SET_COUNT] = {
-    { 0, "generic", 1, 4, 8, 0 },
+    { 0, "generic", 1, 6, 14, 0 },
 };
 
 const int MAX_CAN_BUS_COUNT = 2;
@@ -44,10 +44,12 @@ CanBus CAN_BUSES[][MAX_CAN_BUS_COUNT] = {
     },
 };
 
-const int MAX_MESSAGE_COUNT = 4;
+const int MAX_MESSAGE_COUNT = 6;
 CanMessageDefinition CAN_MESSAGES[][MAX_MESSAGE_COUNT] = {
     { // message set: generic
         { bus: &CAN_BUSES[0][0], id: 0x201, format: STANDARD, frequencyClock: {0.000000}, forceSendChanged: true}, // Engine_Gen_1
+        { bus: &CAN_BUSES[0][0], id: 0x208, format: STANDARD, frequencyClock: {0.000000}, forceSendChanged: true}, // WhlSlip
+        { bus: &CAN_BUSES[0][0], id: 0x508, format: STANDARD, frequencyClock: {0.000000}, forceSendChanged: true}, // LatLongSens
         { bus: &CAN_BUSES[0][0], id: 0x1040, format: EXTENDED, frequencyClock: {0.000000}, forceSendChanged: true}, // bcm_request
         { bus: &CAN_BUSES[0][0], id: 0x1162, format: EXTENDED, frequencyClock: {0.000000}, forceSendChanged: true}, // u2c_stat2
         { bus: &CAN_BUSES[0][0], id: 0x1217, format: EXTENDED, frequencyClock: {0.000000}, forceSendChanged: true}, // Engine_Gen_3
@@ -59,17 +61,23 @@ const int MAX_SIGNALS_WITH_STATES_COUNT = 0;
 const CanSignalState SIGNAL_STATES[][MAX_SIGNALS_WITH_STATES_COUNT][MAX_SIGNAL_STATES] = {
 };
 
-const int MAX_SIGNAL_COUNT = 8;
+const int MAX_SIGNAL_COUNT = 14;
 CanSignal SIGNALS[][MAX_SIGNAL_COUNT] = {
     { // message set: generic
         {message: &CAN_MESSAGES[0][0], genericName: "accelerator_pedal_position", bitPosition: 39, bitSize: 8, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // AccActPos
         {message: &CAN_MESSAGES[0][0], genericName: "engine_speed", bitPosition: 15, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // EngSpd
-        {message: &CAN_MESSAGES[0][1], genericName: "battery_contactor_status", bitPosition: 5, bitSize: 2, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // bcm_mainc_stat
-        {message: &CAN_MESSAGES[0][1], genericName: "battery_state_of_charge", bitPosition: 31, bitSize: 8, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // bcm_soc
-        {message: &CAN_MESSAGES[0][1], genericName: "battery_voltage", bitPosition: 51, bitSize: 12, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // bcm_vbat
-        {message: &CAN_MESSAGES[0][1], genericName: "bcm_ibat", bitPosition: 39, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // bcm_ibat
-        {message: &CAN_MESSAGES[0][2], genericName: "dcdc_heatplate_thermistor", bitPosition: 32, bitSize: 8, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // dcdc_temp
-        {message: &CAN_MESSAGES[0][3], genericName: "engine_coolant_temp", bitPosition: 23, bitSize: 8, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // EngCltTmp
+        {message: &CAN_MESSAGES[0][1], genericName: "left_front_wheel_slip", bitPosition: 7, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // WhlSlipLFWhl
+        {message: &CAN_MESSAGES[0][1], genericName: "left_rear_wheel_slip", bitPosition: 39, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // WhlSlipLRWhl
+        {message: &CAN_MESSAGES[0][1], genericName: "right_front_wheel_slip", bitPosition: 23, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // WhlSlipRFWhl
+        {message: &CAN_MESSAGES[0][1], genericName: "right_rear_wheel_slip", bitPosition: 55, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // WhlSlipRRWhl
+        {message: &CAN_MESSAGES[0][2], genericName: "lateral_acceleration", bitPosition: 23, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // LatAccSnsVal
+        {message: &CAN_MESSAGES[0][2], genericName: "longitudinal_acceleration", bitPosition: 7, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // LonAccSnsVal
+        {message: &CAN_MESSAGES[0][3], genericName: "battery_contactor_status", bitPosition: 5, bitSize: 2, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // bcm_mainc_stat
+        {message: &CAN_MESSAGES[0][3], genericName: "battery_state_of_charge", bitPosition: 31, bitSize: 8, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // bcm_soc
+        {message: &CAN_MESSAGES[0][3], genericName: "battery_voltage", bitPosition: 51, bitSize: 12, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // bcm_vbat
+        {message: &CAN_MESSAGES[0][3], genericName: "bcm_ibat", bitPosition: 39, bitSize: 16, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // bcm_ibat
+        {message: &CAN_MESSAGES[0][4], genericName: "dcdc_heatplate_thermistor", bitPosition: 32, bitSize: 8, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // dcdc_temp
+        {message: &CAN_MESSAGES[0][5], genericName: "engine_coolant_temp", bitPosition: 23, bitSize: 8, factor: 1.000000, offset: 0.000000, minValue: 0.000000, maxValue: 0.000000, frequencyClock: {0.000000}, sendSame: true, forceSendChanged: false, states: NULL, stateCount: 0, writable: false, decoder: NULL, encoder: NULL}, // EngCltTmp
     },
 };
 
@@ -101,17 +109,27 @@ void openxc::signals::decodeCanMessage(Pipeline* pipeline, CanBus* bus, CanMessa
                 can::read::translateSignal(&SIGNALS[0][0], message, SIGNALS[0], getSignalCount(), pipeline); // AccActPos
                 can::read::translateSignal(&SIGNALS[0][1], message, SIGNALS[0], getSignalCount(), pipeline); // EngSpd
                 break;
+            case 0x208: // WhlSlip
+                can::read::translateSignal(&SIGNALS[0][2], message, SIGNALS[0], getSignalCount(), pipeline); // WhlSlipLFWhl
+                can::read::translateSignal(&SIGNALS[0][3], message, SIGNALS[0], getSignalCount(), pipeline); // WhlSlipLRWhl
+                can::read::translateSignal(&SIGNALS[0][4], message, SIGNALS[0], getSignalCount(), pipeline); // WhlSlipRFWhl
+                can::read::translateSignal(&SIGNALS[0][5], message, SIGNALS[0], getSignalCount(), pipeline); // WhlSlipRRWhl
+                break;
+            case 0x508: // LatLongSens
+                can::read::translateSignal(&SIGNALS[0][6], message, SIGNALS[0], getSignalCount(), pipeline); // LatAccSnsVal
+                can::read::translateSignal(&SIGNALS[0][7], message, SIGNALS[0], getSignalCount(), pipeline); // LonAccSnsVal
+                break;
             case 0x1040: // bcm_request
-                can::read::translateSignal(&SIGNALS[0][2], message, SIGNALS[0], getSignalCount(), pipeline); // bcm_mainc_stat
-                can::read::translateSignal(&SIGNALS[0][3], message, SIGNALS[0], getSignalCount(), pipeline); // bcm_soc
-                can::read::translateSignal(&SIGNALS[0][4], message, SIGNALS[0], getSignalCount(), pipeline); // bcm_vbat
-                can::read::translateSignal(&SIGNALS[0][5], message, SIGNALS[0], getSignalCount(), pipeline); // bcm_ibat
+                can::read::translateSignal(&SIGNALS[0][8], message, SIGNALS[0], getSignalCount(), pipeline); // bcm_mainc_stat
+                can::read::translateSignal(&SIGNALS[0][9], message, SIGNALS[0], getSignalCount(), pipeline); // bcm_soc
+                can::read::translateSignal(&SIGNALS[0][10], message, SIGNALS[0], getSignalCount(), pipeline); // bcm_vbat
+                can::read::translateSignal(&SIGNALS[0][11], message, SIGNALS[0], getSignalCount(), pipeline); // bcm_ibat
                 break;
             case 0x1162: // u2c_stat2
-                can::read::translateSignal(&SIGNALS[0][6], message, SIGNALS[0], getSignalCount(), pipeline); // dcdc_temp
+                can::read::translateSignal(&SIGNALS[0][12], message, SIGNALS[0], getSignalCount(), pipeline); // dcdc_temp
                 break;
             case 0x1217: // Engine_Gen_3
-                can::read::translateSignal(&SIGNALS[0][7], message, SIGNALS[0], getSignalCount(), pipeline); // EngCltTmp
+                can::read::translateSignal(&SIGNALS[0][13], message, SIGNALS[0], getSignalCount(), pipeline); // EngCltTmp
                 break;
             }
             break;

@@ -63,6 +63,48 @@
 					"bit_size": 8
 				}
 			}
+		},
+		"0x508": {
+			"name": "LatLongSens",
+			"bus": "hs",
+			"signals": {
+				"LatAccSnsVal": {
+					"generic_name": "lateral_acceleration",
+					"bit_position": 23,
+					"bit_size": 16
+				},
+				"LonAccSnsVal": {
+					"generic_name": "longitudinal_acceleration",
+					"bit_position": 7,
+					"bit_size": 16
+				}
+			}
+		},
+		"0x208": {
+			"name": "WhlSlip",
+			"bus": "hs",
+			"signals": {
+				"WhlSlipRRWhl": {
+					"generic_name": "right_rear_wheel_slip",
+					"bit_position": 55,
+					"bit_size": 16
+				},
+				"WhlSlipRFWhl": {
+					"generic_name": "right_front_wheel_slip",
+					"bit_position": 23,
+					"bit_size": 16
+				},
+				"WhlSlipLRWhl": {
+					"generic_name": "left_rear_wheel_slip",
+					"bit_position": 39,
+					"bit_size": 16
+				},
+				"WhlSlipLFWhl": {
+					"generic_name": "left_front_wheel_slip",
+					"bit_position": 7,
+					"bit_size": 16
+				}
+			}
 		}
 	}
 }
