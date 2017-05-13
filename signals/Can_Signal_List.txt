@@ -1,15 +1,48 @@
-BO 201
-SG_ EngSpd : 15|16@0+ (0.25,0) [0|16383.75] "rpm"
-SG_ AccActPos : 39|8@0+ (0.392157,0) [0|100.000035] "%"
-BO 1217
-SG_ EngCltTmp : 23|8@0+ (1,-40) [-40|215] "deg C"
-
-SG_ TrnOilTmp : 15|8@0+ (1,-40) [-40|215] "deg C"
-SG_ TrnsOvrallEstTorqRatio : 6|15@0- (0.00390625,0) [-64|63.99609375] ""
-SG_ LatAccSnsVal : 23|16@0- (0.00012207,0) [-3.99998976|3.99986769] "g's"
-SG_ LonAccSnsVal : 7|16@0- (0.00012207,0) [-3.99998976|3.99986769] "g's"
-SG_ WhlSlipRRWhl : 55|16@0+ (0.390625,-12800) [-12800|12799.609375] "%"
- SG_ WhlSlipRFWhl : 23|16@0+ (0.390625,-12800) [-12800|12799.609375] "%"
- SG_ WhlSlipLRWhl : 39|16@0+ (0.390625,-12800) [-12800|12799.609375] "%"
- SG_ WhlSlipLFWhl : 7|16@0+ (0.390625,-12800) [-12800|12799.609375] "%"
+SG_ TrnOilTmp : 15|8@0+ (1,-40) [-40|215] "deg C" trans_oil_temp
+SG_ TrnsOvrallEstTorqRatio : 6|15@0- (0.00390625,0) [-64|63.99609375] "" trans_overall_trq_ratio
+ 
+ HV Batt-
+ SOC  		"battery_state_of_charge"
+ Current  	"battery_current"
+ Voltage  	"battery_voltage"
+ Temp		"battery_temp"
+ 
+ 
+ Motor-
+ Motor Temp	"motor_temp"
+ Torque		"motor_trq"
+ speed		"motor_speed"
+ Inverter Temp "inverter_temp"
+ 
+ DCDC-
+ LV Current "dcdc_lv_current"
+ LV Voltage "dcdc_lv_voltage"
+ Temp		"dcdc_temp"
+ 
+ HV Charger-
+ AC Current "charger_ac_current"
+ temp		"charger_temp"
+ 
+ Trans-
+ Gear		"trans_gear"
+ Torque Ratio "trans_trq_ratio"						SG_ TrnsOvrallEstTorqRatio : 6|15@0- (0.00390625,0) [-64|63.99609375] ""
+ Temp		"trans_temp"							SG_ TrnOilTmp : 15|8@0+ (1,-40) [-40|215] "deg C"
+ 
+ Vehicle-
+ Lat Accel	"latitudinal_acceleration" 		"508"	SG_ LatAccSnsVal : 23|16@0- (0.00012207,0) [-3.99998976|3.99986769] "g's"
+ Long Accel	"longitudinal_acceleration"		"508"	SG_ LonAccSnsVal : 7|16@0- (0.00012207,0) [-3.99998976|3.99986769] "g's"
+ 
+ Tires-
+ RRWhlSlip 	"right_rear_wheel_slip"			"208"	SG_ WhlSlipRRWhl : 55|16@0+ (0.390625,-12800) [-12800|12799.609375] "%"
+ RFWhlSlip 	"right_front_wheel_slip"		"208"	SG_ WhlSlipRFWhl : 23|16@0+ (0.390625,-12800) [-12800|12799.609375] "%"
+ LRWhlSlip 	"left_rear_wheel_slip"			"208"	SG_ WhlSlipLRWhl : 39|16@0+ (0.390625,-12800) [-12800|12799.609375] "%"
+ LFWhlSlip 	"left_front_wheel_slip"			"208"	SG_ WhlSlipLFWhl : 7|16@0+ (0.390625,-12800) [-12800|12799.609375] "%"
+ 
+ General-
+ APP 		"accelerator_pedal_position"	"201"	SG_ AccActPos : 39|8@0+ (0.392157,0) [0|100.000035] "%"
+ BPP		"brake_pedal_position"			
+ Fuel Consumption "inst_fuel_consumption"	
+ Estimated Wh/Km "est_energy_consumption"	
+ Engine Speed "engine_speed"				"201"	SG_ EngSpd : 15|16@0+ (0.25,0) [0|16383.75] "rpm"
+ Engine Temp "engine_coolant_temp"			"1217" 	SG_ EngCltTmp : 23|8@0+ (1,-40) [-40|215] "deg C"
  
