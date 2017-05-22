@@ -1,6 +1,6 @@
 {
     "messages": {
-		"0x201": {
+		"0x0C9": {
             "name": "Engine_Gen_1",
             "bus": "hs",
             "signals": {
@@ -16,7 +16,7 @@
                 }
             }
         },
-		"0x1217": {
+		"0x4C1": {
 			"name": "Engine_Gen_3",
 			"bus": "hs",
 			"signals": {
@@ -27,7 +27,7 @@
 				}
 			}
 		},
-		"0x1040": {
+		"0x410": {
 			"name": "bcm_request",
 			"bus": "hs",
 			"signals": {
@@ -53,7 +53,7 @@
 				}
 			}
 		},
-		"0x1162": {
+		"0x48A": {
 			"name": "u2c_stat2",
 			"bus": "hs",
 			"signals": {
@@ -64,7 +64,7 @@
 				}
 			}
 		},
-		"0x508": {
+		"0x1FC": {
 			"name": "LatLongSens",
 			"bus": "hs",
 			"signals": {
@@ -80,7 +80,7 @@
 				}
 			}
 		},
-		"0x208": {
+		"0x0D0": {
 			"name": "WhlSlip",
 			"bus": "hs",
 			"signals": {
@@ -101,6 +101,92 @@
 				},
 				"WhlSlipLFWhl": {
 					"generic_name": "left_front_wheel_slip",
+					"bit_position": 7,
+					"bit_size": 16
+				}
+			}
+		},
+		"0x430": {
+			"name": "bcm_data2",
+			"bus": "hs",
+			"signals": {
+				"cell_temp_max": {
+					"generic_name": "battery_temp",
+					"bit_position": 39,
+					"bit_size": 8
+				}
+			}
+		},
+		"0x286": {
+			"name": "motor_measurements",
+			"bus": "hs",
+			"signals": {
+				"motor_temp": {
+					"generic_name": "motor_temp",
+					"bit_position": 32,
+					"bit_size": 16
+				},
+				"powerstage_temp": {
+					"generic_name": "inveter_temp",
+					"bit_position": 48,
+					"bit_size": 16
+				}
+			}
+		},
+		"0x186": {
+			"name": "motor_commands",
+			"bus": "hs",
+			"signals": {
+				"motor_torque": {
+					"generic_name": "motor_trq",
+					"bit_position": 32,
+					"bit_size": 16
+				},
+				"motor_speed": {
+					"generic_name": "motor_speed",
+					"bit_position": 16,
+					"bit_size": 16
+				}
+			}
+		},
+		"0x1D5": {
+			"name": "u2C_stat1",
+			"bus": "hs",
+			"signals": {
+				"dcdc_lv_current": {
+					"generic_name": "dcdc_lv_current",
+					"bit_position": 48,
+					"bit_size": 7
+				},
+				"dcdc_lv_voltage": {
+					"generic_name": "dcdc_lv_voltage",
+					"bit_position": 24,
+					"bit_size": 8
+				}
+			}
+		},
+		"0x611": {
+			"name": "nlg5_act1",
+			"bus": "hs",
+			"signals": {
+				"ac_current": {
+					"generic_name": "charger_ac_current",
+					"bit_position": 7,
+					"bit_size": 16
+				},
+				"ac_voltage": {
+					"generic_name": "charger_ac_voltage",
+					"bit_position": 23,
+					"bit_size": 16
+				}
+			}
+		},
+		"0x613": {
+			"name": "nlg5_temp",
+			"bus": "hs",
+			"signals": {
+				"temp": {
+					"generic_name": "charger_temp",
 					"bit_position": 7,
 					"bit_size": 16
 				}

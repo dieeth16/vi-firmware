@@ -1,32 +1,30 @@
-SG_ TrnOilTmp : 15|8@0+ (1,-40) [-40|215] "deg C" trans_oil_temp
-SG_ TrnsOvrallEstTorqRatio : 6|15@0- (0.00390625,0) [-64|63.99609375] "" trans_overall_trq_ratio
- 
  HV Batt-
- SOC  		"battery_state_of_charge"
- Current  	"battery_current"
- Voltage  	"battery_voltage"
- Temp		"battery_temp"
+ SOC  		"battery_state_of_charge"		"1040"	SG_ bcm_soc : 31|8@0+ (0.5,0) [0|100] "%"
+ Current  	"battery_current"				"1040"	SG_ bcm_ibat : 39|16@0+ (0.025,-1000) [-1000|500] "amps"
+ Voltage  	"battery_voltage"				"1040"	SG_ bcm_vbat : 51|12@0+ (0.25,0) [0|1000] "volts" 
+ Temp		"battery_temp"					"1072"	SG_ bcm_cell_tmax : 39|8@0+ (0.5,-40) [-40|85] "DegC"
  
  
  Motor-
- Motor Temp	"motor_temp"
- Torque		"motor_trq"
- speed		"motor_speed"
- Inverter Temp "inverter_temp"
+ Motor Temp	"motor_temp"					"646"	SG_ MotorTemperature_Temperature : 32|16@1- (1,0) [0|0] "DegC"
+ Torque		"motor_trq"						"390"	SG_ TorqueCalculation_ActTorque : 32|16@1- (.1,0) [0|0] "Nm"
+ speed		"motor_speed"					"390"	SG_ ApplicationStatus_ActualSpeed : 16|16@1- (1,0) [0|0] "RPM"
+ Inverter Temp "inverter_temp"				"646"	SG_ PowerStageTemperature_Temperatur : 48|16@1- (1,0) [0|0] "DegC"
  
  DCDC-
- LV Current "dcdc_lv_current"
- LV Voltage "dcdc_lv_voltage"
- Temp		"dcdc_temp"
+ LV Current "dcdc_lv_current"				"469"	SG_ Stat1_LVCurrent : 48|7@1+ (2,0) [0|254] "Amps"
+ LV Voltage "dcdc_lv_voltage"				"469"	SG_ Stat1_LVVoltage : 24|8@1+ (0.078431,0) [0|0] "Volts"
+ Temp		"dcdc_temp"						"1162"	SG_ Stat2_HeatPlateThermister : 40|8@1- (1,-40) [0|0] "DegC"
  
  HV Charger-
- AC Current "charger_ac_current"
- temp		"charger_temp"
+ AC Current "charger_ac_current"			"1553"	SG_ NLG5_MC_ACT : 7|16@0+ (0.01,0) [0|50] "Amps"
+ AC Voltage "charger_ac_voltage"			"1553"	SG_ NLG5_MV_ACT : 23|16@0+ (0.1,0) [0|500] "Volts"
+ temp		"charger_temp"					"1555"	SG_ NLG5_P_TMP : 7|16@0- (0.1,0) [-40|300] "DegC"
  
  Trans-
- Gear		"trans_gear"
- Torque Ratio "trans_trq_ratio"						SG_ TrnsOvrallEstTorqRatio : 6|15@0- (0.00390625,0) [-64|63.99609375] ""
- Temp		"trans_temp"							SG_ TrnOilTmp : 15|8@0+ (1,-40) [-40|215] "deg C"
+ Gear		"trans_gear"					
+ Torque Ratio "trans_trq_ratio"				"407"	SG_ TrnsOvrallActTorqRatio : 6|15@0- (0.00390625,0) [-64|63.99609375] ""
+ Temp		"trans_temp"					"1225"	SG_ TrnOilTmp : 15|8@0+ (1,-40) [-40|215] "deg C"
  
  Vehicle-
  Lat Accel	"latitudinal_acceleration" 		"508"	SG_ LatAccSnsVal : 23|16@0- (0.00012207,0) [-3.99998976|3.99986769] "g's"
@@ -40,8 +38,8 @@ SG_ TrnsOvrallEstTorqRatio : 6|15@0- (0.00390625,0) [-64|63.99609375] "" trans_o
  
  General-
  APP 		"accelerator_pedal_position"	"201"	SG_ AccActPos : 39|8@0+ (0.392157,0) [0|100.000035] "%"
- BPP		"brake_pedal_position"			
- Fuel Consumption "inst_fuel_consumption"	
+ BPP		"brake_pedal_position"			"241"	SG_ BrkPdlPos : 15|8@0+ (0.392157,0) [0|100.000035] "% full"
+ Fuel Consumption "inst_fuel_consumption"	"977"	SG_ InstFuelConsmpRate : 35|12@0+ (0.025,0) [0|102.375] "ltrs/hr"
  Estimated Wh/Km "est_energy_consumption"	
  Engine Speed "engine_speed"				"201"	SG_ EngSpd : 15|16@0+ (0.25,0) [0|16383.75] "rpm"
  Engine Temp "engine_coolant_temp"			"1217" 	SG_ EngCltTmp : 23|8@0+ (1,-40) [-40|215] "deg C"
